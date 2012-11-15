@@ -1,10 +1,23 @@
 <?PHP 
 
-
+/**
+ * A helper to print out skype links
+ *
+ * @author yisrael dov 
+ *
+ * @usage
+ *  // create a link to call a user 
+ * echo $this->Skype->call("05255555555",'call',array('country'=>'israel'));
+ *
+ */
 class SkypeHelper extends AppHelper{
 
+    /**
+     * hash of country name to prefix
+     * 
+     * This might not be 100% accurate
+     */
     public $countryPrefix =
-
         array(
 //took this from wikipedia
 //Country, Territory or Service	Code
@@ -282,7 +295,7 @@ class SkypeHelper extends AppHelper{
             );
 
     /**
-     * Returns phone with the country 
+     * Returns phone with the country code added
      * 
      * @param string $number the phone number
      * @param string $country the name of the country
@@ -299,6 +312,23 @@ class SkypeHelper extends AppHelper{
         }
     }
 
+    /**
+     * creates a skype link
+     *
+     * @param string $id skypeid or phone
+     * @param string|null $action call,sms,chat ...
+     * @param string|null $title The title to use for the link defaults to the $id
+     *
+     * @param array|null $options any attributes that you want to
+     * apply to the link with some additional special options:
+     *
+     *    country: the name of the country to add country code,
+     *    defaults to 'United states
+     *
+     * @return string the html for the skype link
+     *
+     * @author Yisraeldov
+     */
     public function link($id,$action=null,$title=null,$options=array('class'=>'skype')){
         if(empty($title)){
             $title = $id;
@@ -310,6 +340,19 @@ class SkypeHelper extends AppHelper{
         return sprintf('<a href="%s"%s>%s</a>', $url, $this->_parseAttributes($options), $title);
     }
 
+    /**
+     * call,sms,chat methods
+     *
+     * creates a link for the method called
+     *
+     * @param string $id: the skype id or phone number
+     * @param string|null $title the title for the link
+     * @param array|null $options
+     * @return string html of the skype link 
+     *
+     * @see link
+     * @author yisraeldov
+     */
     public function __call($method,$params){
         if(!in_array($method,array('call','sms','chat'))){
             throw new exception("$method is an invalid skpe action");
