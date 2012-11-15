@@ -1,0 +1,27 @@
+/* skype */
+
+/*make a nice round skype button*/
+a.skype{
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2)
+
+    display:block;
+    background: #87e0fd; /* Old browsers */
+    background: -moz-linear-gradient(top, #87e0fd 0%, #53cbf1 40%, #4baff0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87e0fd), color-stop(40%,#53cbf1), color-stop(100%,#4baff0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#4baff0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#4baff0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#4baff0 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#4baff0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#4baff0',GradientType=0 ); /* IE6-9 */
+
+    padding-left:5px;
+    padding-right:5px;
+    color: white;
+    border: 2px solid #4baff0;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 1em;
+    text-decoration: none;
+}
